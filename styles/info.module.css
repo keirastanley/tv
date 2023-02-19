@@ -1,0 +1,12 @@
+.info_container {
+  width: 50%;
+}
+
+.info {
+  display: flex;
+  gap: 30px;
+}
+
+.info_headings {
+
+}
