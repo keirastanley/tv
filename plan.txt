@@ -1,0 +1,3 @@
+- Skeleton loading 
+- Use the "search" in the tvmaze API 
+- Save favourites (backend)

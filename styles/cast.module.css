@@ -1,5 +1,5 @@
 .cast_container {
-  max-width: 50%;
+  width: 50%;
 }
 
 .cast {
@@ -7,9 +7,7 @@
   gap: 10px;
 }
 
-.actors {
-
-}
+.actors {}
 
 .characters {
   display: flex;

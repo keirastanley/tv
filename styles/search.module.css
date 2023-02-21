@@ -1,6 +1,46 @@
-.results_container {
-  border: 1px solid red;
+.container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.input_container {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid white;
+  animation: show-search ease-in 0.2s forwards, fade-in 0.2s;
+}
+
+.input {
+  width: 200px;
+  font-size: max(1vw, 15px);
+  border: none;
+  padding: 5px;
+  background-color: transparent;
+  color: white;
+  animation: fade-in 1s;
+}
+
+.input:focus {
+  outline: none;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show-search {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
 }

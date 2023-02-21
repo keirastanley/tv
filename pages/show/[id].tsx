@@ -2,7 +2,7 @@ import { Stars } from "@/utils/functions";
 import { castType, showType } from "@/utils/types";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"; import parse from 'html-react-parser';
-import styles from '@/styles/show_page.module.css'
+import styles from '@/styles/show_page.module.css';
 import { getCast, getShow } from "@/utils/requests";
 import Cast from "@/components/cast";
 import Info from "@/components/info";
@@ -22,7 +22,7 @@ export default function ShowPage() {
 
   return <>{show ? <div className={styles.main_container}>
     <div className={styles.header}>
-      <img src={show.image.medium}/>
+      {show.image ? <img src={show.image.medium} /> : <img src='/blank-movie.png' alt={show.name} />}
       <div className={styles.main_details}>
         {show.rating.average ? <div className={styles.rating}><Stars rating={show.rating.average / 2} /> <p>{show.rating.average / 2}</p></div> : null}
         <h1>{show.name}</h1>
@@ -30,8 +30,8 @@ export default function ShowPage() {
       </div>
     </div>
     <div className={styles.more_details}>
-      <Info show={show}/>
-      {cast ? <Cast cast={cast}/> : null}
+      <Info show={show} />
+      {cast ? <Cast cast={cast} /> : null}
     </div>
   </div>
     : null}

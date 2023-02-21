@@ -1,5 +1,8 @@
 .info_container {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .info {
@@ -8,5 +11,7 @@
 }
 
 .info_headings {
-
+  width: 20%;
 }
+
+.info_content {}

@@ -1,8 +1,48 @@
 .container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 10px;
+  position: fixed;
+  background-color: #191b21;
+  width: 100vw;
+  z-index: 1;
+  padding: 10px;
+  justify-content: center;
 }
 
-.container img {
-  width: 80px;
+.icon a {
+  display: flex;
+  align-items: center;
+  width: max(25vw, 170px);
+  gap: 10px;
+}
+
+.icon img {
+  width: max(5vw, 30px);
+}
+
+.icon h1 {
+  font-size: max(2vw, 15px);
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.main_links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: max(1vw, 10px);
+}
+
+.search_section {
+  font-size: max(2vw, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

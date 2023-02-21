@@ -1,9 +1,18 @@
-import { scheduleType } from "@/utils/types";
-import ShowCard from "../show-card";
+import { scheduleType, showType } from "@/utils/types";
+import ShowCard from "@/components/show-card";
 import styles from '@/styles/guide.module.css';
+import { getSchedule } from "@/utils/requests";
+import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
-export default function Guide({ schedule }: any) {
-  const time = new Date().toString().split(" ")[4].split(":").slice(0, 2).join(":")
+type propsObj = {
+  favourites: number[],
+  handleFavourites: Function,
+}
+
+export default function Guide({ favourites, handleFavourites }: propsObj) {
+  const [schedule, setSchedule] = useState<scheduleType[]>();
+  const time = new Date().toString().split(" ")[4].split(":").slice(0, 2).join(":");
 
   let times = [];
   for (let hour = 0; hour < 24; hour++) {
@@ -17,6 +26,12 @@ export default function Guide({ schedule }: any) {
 
   let guide: guideType = [];
   let guideObj: { [key: string]: scheduleType[] } = {};
+
+  useEffect(() => {
+    getSchedule().then((response) => {
+      setSchedule([...response])
+    })
+  }, [])
 
   if (schedule) {
     for (let i = 0; i < schedule.length; i++) {
@@ -48,15 +63,14 @@ export default function Guide({ schedule }: any) {
   }
 
   return guide ? <div className={styles.guide_container}>
-    <h2>What's on today</h2>
     <table className={styles.table}>
+      <h2 style={{ textAlign: "center" }}>What's on today</h2>
+      {/* <div className={styles.search}><input type="date"></input><button onClick={searchByDate}>Search</button></div> */}
       {guide.slice(index).map(item =>
         <thead className={styles.table_head}>
-          {item.time}
-          {item.shows.map(item =>
-            <tbody className={styles.table_body}>
-              <ShowCard show={item.show} />
-            </tbody>)}
+          <div className={styles.time}>{item.time}</div>
+          <div className={styles.shows}>{item.shows.map(item =>
+            <ShowCard show={item.show} airtime={item.airtime} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}</div>
         </thead>)}
     </table>
   </div> : null

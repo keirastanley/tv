@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 }
 
 .header {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  max-width: 75vw;
+  gap: 20px;
+  max-width: 80vw;
   justify-content: center;
 }
 
@@ -37,5 +38,6 @@
   display: flex;
   gap: 10px;
   width: 620px;
-  max-width: 75vw;
+  max-width: 90vw;
+  justify-content: center;
 }
