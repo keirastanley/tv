@@ -123,3 +123,8 @@ export type castType = {
   self: boolean,
   voice: boolean
 }
+
+export type guideType = {
+  time: string;
+  shows: scheduleType[];
+}

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-import Schedule from '@/components/schedule'
+import Homepage from '@/components/homepage'
 
 type propsObj = {
   favourites: number[],
@@ -17,7 +17,7 @@ export default function Home({ favourites, handleFavourites }: propsObj) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/retro-tv.png" />
       </Head>
-      <Schedule favourites={favourites} handleFavourites={handleFavourites} />
+      <Homepage favourites={favourites} handleFavourites={handleFavourites} />
     </>
   )
 }

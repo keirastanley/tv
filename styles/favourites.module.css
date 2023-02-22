@@ -1,13 +1,29 @@
 .container {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   gap: 20px;
-  padding-top: 200px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top: 150px;
   animation: fade-in 1s;
+}
+
+.card_container {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: center;
+  justify-content: center; */
+  gap: 20px;
+  padding-left: 20px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 900px;
 }
 
 @keyframes fade-in {

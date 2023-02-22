@@ -10,13 +10,14 @@
 .header {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
   min-width: 300px;
 }
 
 .header img {
   height: 300px;
+  border-radius: 5px;
 }
 
 .main_details {

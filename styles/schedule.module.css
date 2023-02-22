@@ -6,18 +6,22 @@
   gap: 20px;
 }
 
+.loader {
+  display: flex;
+  padding-top: 250px;
+  justify-content: center;
+}
+
 .schedule {
   display: flex;
   gap: 20px;
-  visibility: hidden;
-  animation: schedule linear 50s 1s infinite alternate;
+  animation: schedule linear 50s infinite alternate;
 }
 
 @keyframes schedule {
   0% {
     opacity: 0;
     transform: translate3d(0, 0, 0);
-    visibility: visible;
   }
 
   10% {
@@ -26,6 +30,5 @@
 
   100% {
     transform: translate3d(-50%, 0, 0);
-    visibility: visible;
   }
 }

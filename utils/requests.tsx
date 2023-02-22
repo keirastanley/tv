@@ -1,3 +1,5 @@
+import { removeDuplicateShows } from "./functions";
+
 export async function getSchedule(dateObject: Date) {
   const date = new Date(dateObject).toISOString().slice(0, 10);
   const responseUS = await fetch(`https://api.tvmaze.com/schedule/?&date=${date}`);
@@ -18,14 +20,14 @@ export async function getStreaming() {
   return showData;
 };
 
-export async function getShow(id: string) {
+export async function getShow(id: string | number) {
   const response = await fetch(`https://api.tvmaze.com/shows/${id}`);
   const data = await response.json();
   console.log(data)
   return data;
 };
 
-export async function getShows(ids: string[]) {
+export async function getShows(ids: string[] | number[]) {
   const data = await Promise.all(ids.map(async item => await getShow(item)));
   return data;
 }
@@ -41,5 +43,5 @@ export async function getSearchResults(query: string) {
   const data = await response.json();
   const responsePlural = await fetch(`https://api.tvmaze.com/search/shows?q=${query}s`);
   const dataPlural = await responsePlural.json();
-  return data.concat(dataPlural);
+  return removeDuplicateShows(data.concat(dataPlural));
 }

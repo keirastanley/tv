@@ -8,18 +8,22 @@
 
 html,
 body {
+  margin: 0;
+  padding: 0;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #191b21;
   color: white;
+  background-color: #191b21;
   font-family: Geneva, Tahoma, sans-serif;
 }
 
-h1 {
+h1,
+h2 {
   font-family: 'Gloock', serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }

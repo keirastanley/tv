@@ -2,8 +2,7 @@ import Link from 'next/link';
 import { Stars } from '@/components/stars';
 import { showType } from '@/utils/types';
 import styles from '@/styles/show_card.module.css';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { AiFillHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 type propsObj = {
   show: showType,
@@ -24,10 +23,10 @@ export default function ShowCard({ show, airtime, favourites, handleFavourites }
       </div>
       {show.image ?
         <img src={show.image.medium} alt={show.name} /> :
-        <img src='/blank-movie.png' alt={show.name} />}
+        <img src='/placeholder_image.png' alt={show.name} />}
     </div></Link>
-    <div className={styles.heart} onClick={() => handleFavourites(show.id)} style={{ fontSize: "20px", cursor: "pointer" }}>
-      {favourites.includes(show.id) ? <AiFillHeart /> : <AiOutlineHeart />}
+    <div onClick={() => handleFavourites(show.id)} style={{ fontSize: "20px", cursor: "pointer" }}>
+      {favourites.includes(show.id) ? <AiFillHeart className={styles.heart_fill} /> : <AiOutlineHeart className={styles.heart_outline} />}
     </div>
   </div>
 }

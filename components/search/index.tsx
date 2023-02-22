@@ -1,10 +1,6 @@
-import { getSearchResults } from "@/utils/requests"
-import { showType } from "@/utils/types";
-import { useEffect, useState } from "react"
-import ShowCard from "../show-card";
+import { useState } from "react"
 import { useRouter } from "next/router";
 import styles from '@/styles/search.module.css';
-import { AiOutlineSearch } from 'react-icons/ai';
 
 export default function Search({ setSearching }: any) {
   const [query, setQuery] = useState("");

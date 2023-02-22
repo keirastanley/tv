@@ -26,12 +26,16 @@
   animation: lift 2s infinite ease-in-out alternate;
 }
 
-.heart {
+.heart_outline {
   opacity: 0;
 }
 
-.container:hover .heart {
+.container:hover .heart_outline {
   opacity: 1;
+}
+
+.heart_fill {
+  color: #e33b5f;
 }
 
 .image_container {

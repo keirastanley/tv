@@ -1,11 +1,9 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Header from '@/components/header'
-import Footer from '@/components/footer'
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
-
   const [favourites, setFavourites] = useState<number[]>([])
 
   useEffect(() => {
@@ -14,7 +12,6 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [])
 
   function handleFavourites(id: number) {
-    console.log(id)
     if (favourites.includes(id)) {
       let newFavourites = favourites.filter(item => item !== id);
       setFavourites(newFavourites);
@@ -30,6 +27,5 @@ export default function App({ Component, pageProps }: AppProps) {
   return <>
     <Header />
     <Component {...pageProps} favourites={favourites} handleFavourites={handleFavourites} />
-    <Footer />
   </>
 }

@@ -2,13 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   gap: 20px;
-  padding-top: 180px;
+  padding-top: 150px;
   padding-left: 15px;
   padding-right: 15px;
   animation: fade-in 1s;
-  min-height: 80vh;
 }
 
 @keyframes fade-in {
