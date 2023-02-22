@@ -14,12 +14,8 @@
 .icon a {
   display: flex;
   align-items: center;
-  width: max(25vw, 170px);
   gap: 10px;
-}
-
-.icon img {
-  width: max(15vw, 150px);
+  justify-content: center;
 }
 
 .content {

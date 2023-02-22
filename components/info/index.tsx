@@ -20,7 +20,7 @@ export default function Info({ show }: propsObj) {
         <p>Genres</p>
       </div>
       <div className={styles.info_content}>
-        <p>{show.schedule.days.map(day => <span key={uuidv4()}>{`${day}s`}</span>)}</p>
+        <p className={styles.days}>{show.schedule.days.map(day => <span key={uuidv4()}>{`${day}s`}</span>)}</p>
         <p>{show.status}</p>
         {show.genres.map((genre, ind) => ind < show.genres.length - 1 ? <span key={uuidv4()}>{genre}, </span> : <span>{genre}</span>)}
       </div>

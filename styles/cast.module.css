@@ -1,24 +1,36 @@
 .cast_container {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max(35vw, 500px);
+  min-width: 280px;
 }
 
 .cast {
   display: flex;
-  gap: 10px;
+  gap: max(3vw, 25px);
+  font-size: 15px;
 }
 
-.actors {}
+.actors {
+  display: flex;
+  flex-direction: column;
+  color: lightgrey;
+  font-size: 15px;
+}
 
 .characters {
   display: flex;
   flex-direction: column;
-  margin-top: 17px;
-  gap: 30px;
+  margin-top: 15px;
+  gap: 29px;
+  min-width: 100px;
 }
 
 .person {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .person img {

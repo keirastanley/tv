@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Stars } from '@/utils/functions';
+import { Stars } from '@/components/stars';
 import { showType } from '@/utils/types';
 import styles from '@/styles/show_card.module.css';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -15,7 +15,7 @@ type propsObj = {
 export default function ShowCard({ show, airtime, favourites, handleFavourites }: propsObj) {
 
   return <div className={styles.container}>
-    <Link href={`show/${show.id}`}><div className={styles.image_container}>
+    <Link href={`/show/${show.id}`}><div className={styles.image_container}>
       <div className={styles.info}>
         <p>{show.name}</p>
         {show.network ? <p>{show.network.name}</p> : <p>Not on air</p>}

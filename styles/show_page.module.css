@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  padding-top: 150px;
+  gap: 40px;
 }
 
 .header {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  max-width: 80vw;
   justify-content: center;
+  min-width: 300px;
 }
 
 .header img {
@@ -23,11 +25,19 @@
   align-items: center;
   justify-content: space-evenly;
   gap: 10px;
-  max-width: 50%;
+  width: 50%;
+  max-width: 800px;
+  min-width: 280px;
 }
 
 .rating {
   display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating p {
+  font-size: 12px;
 }
 
 .description {
@@ -36,8 +46,8 @@
 
 .more_details {
   display: flex;
-  gap: 10px;
-  width: 620px;
-  max-width: 90vw;
+  gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
