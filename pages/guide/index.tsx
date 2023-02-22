@@ -4,6 +4,9 @@ import styles from '@/styles/guide.module.css';
 import { getSchedule } from "@/utils/requests";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
+import { compareDates } from "@/utils/functions";
+import ClockLoader from 'react-spinners/ClockLoader';
 
 type propsObj = {
   favourites: number[],
@@ -12,6 +15,12 @@ type propsObj = {
 
 export default function Guide({ favourites, handleFavourites }: propsObj) {
   const [schedule, setSchedule] = useState<scheduleType[]>();
+  const [date, setDate] = useState(new Date());
+  const [loading, setLoading] = useState(true);
+  const today = new Date();
+
+  console.log("guide");
+
   const time = new Date().toString().split(" ")[4].split(":").slice(0, 2).join(":");
 
   let times = [];
@@ -28,10 +37,11 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
   let guideObj: { [key: string]: scheduleType[] } = {};
 
   useEffect(() => {
-    getSchedule().then((response) => {
-      setSchedule([...response])
-    })
-  }, [])
+    setLoading(true);
+    getSchedule(date).then((response) => {
+      setSchedule([...response]);
+    }).then(() => setLoading(false));
+  }, [date]);
 
   if (schedule) {
     for (let i = 0; i < schedule.length; i++) {
@@ -40,10 +50,10 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
         let airtimeNumber = Number(schedule[i].airtime.split(":")[0]);
         if (timeNumber === airtimeNumber) {
           if (guideObj[times[j]]) {
-            guideObj[times[j]] = [...guideObj[times[j]], schedule[i]]
+            guideObj[times[j]] = [...guideObj[times[j]], schedule[i]];
           }
           else {
-            guideObj[times[j]] = [schedule[i]]
+            guideObj[times[j]] = [schedule[i]];
           }
         }
       }
@@ -51,7 +61,7 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
   }
 
   for (const property in guideObj) {
-    guide.push({ time: property, shows: guideObj[property] })
+    guide.push({ time: property, shows: guideObj[property] });
   }
 
   let index = 0;
@@ -62,16 +72,41 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
     }
   }
 
-  return guide ? <div className={styles.guide_container}>
-    <table className={styles.table}>
-      <h2 style={{ textAlign: "center" }}>What's on today</h2>
-      {/* <div className={styles.search}><input type="date"></input><button onClick={searchByDate}>Search</button></div> */}
-      {guide.slice(index).map(item =>
-        <thead className={styles.table_head}>
+  function handleDate(direction: string) {
+    if (direction === "left") {
+      setDate(new Date(date.setDate(date.getDate() - 1)));
+    }
+    if (direction === "right") {
+      setDate(new Date(date.setDate(date.getDate() + 1)));
+    }
+  }
+
+  return <div className={styles.guide_container}>
+    {loading ? <ClockLoader
+      color={"white"}
+      // loading={loading}
+      // cssOverride={override}
+      size={150}
+      aria-label="Loading Spinner"
+      data-testid="loader"
+    /> : <div className={styles.table}>
+      <div className={styles.date}>
+        {compareDates(date, today) ? null : <BiLeftArrow onClick={() => handleDate("left")} />}
+        <p>{date.toString().slice(0, 10)}</p>
+        {/* <p>{time}</p> */}
+        <BiRightArrow onClick={() => handleDate("right")} />
+      </div>
+      {compareDates(date, today) ? guide.slice(index).map(item =>
+        <div className={styles.table_head} key={uuidv4()}>
           <div className={styles.time}>{item.time}</div>
           <div className={styles.shows}>{item.shows.map(item =>
             <ShowCard show={item.show} airtime={item.airtime} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}</div>
-        </thead>)}
-    </table>
-  </div> : null
+        </div>) : guide.map(item =>
+          <div className={styles.table_head} key={uuidv4()}>
+            <div className={styles.time}>{item.time}</div>
+            <div className={styles.shows}>{item.shows.map(item =>
+              <ShowCard show={item.show} airtime={item.airtime} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}</div>
+          </div>)}
+    </div>}
+  </div>
 }

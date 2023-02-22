@@ -4,8 +4,8 @@ import { scheduleType, showType } from "@/utils/types";
 import { useEffect, useState } from "react";
 import ShowCard from '@/components/show-card';
 import { useRouter } from "next/router";
-import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
+import { ClipLoader } from 'react-spinners';
 
 type propsObj = {
   favourites: number[],
@@ -13,17 +13,20 @@ type propsObj = {
 }
 
 export default function SearchResults({ favourites, handleFavourites }: propsObj) {
+  const [loading, setLoading] = useState(true);
   const [results, setResults] = useState<scheduleType[]>();
   const router = useRouter();
   const query = router.query.query as string;
 
   useEffect(() => {
-    getSearchResults(Number(query)).then((response: scheduleType[]) => {
+    setLoading(true);
+    getSearchResults(query).then((response: scheduleType[]) => {
       setResults(response);
-    })
-  })
+    }).then(() => setLoading(false));
+  }, [query]);
 
-  return <>
-    <div className={styles.results_container}>{results ? results.map(item => <Link href={`/show/${item.show.id}`}><ShowCard show={item.show} airtime={item.airtime} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} /></Link>) : null}</div>
-  </>
+  return <div className={styles.results_container}>
+    {loading ? <ClipLoader color="white" /> : results?.map(item =>
+      <ShowCard show={item.show} airtime={item.airtime} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}
+  </div>
 }

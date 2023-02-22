@@ -13,11 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
     setFavourites(initialFavourites);
   }, [])
 
-  useEffect(() => {
-    console.log(favourites)
-  }, [favourites])
-
-
   function handleFavourites(id: number) {
     console.log(id)
     if (favourites.includes(id)) {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Playfair+Display:ital,wght@0,400;1,700&display=swap');
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -11,6 +13,10 @@ body {
   background-color: #191b21;
   color: white;
   font-family: Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  font-family: 'Gloock', serif;
 }
 
 a {

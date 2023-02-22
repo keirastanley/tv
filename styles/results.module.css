@@ -8,6 +8,7 @@
   padding-left: 15px;
   padding-right: 15px;
   animation: fade-in 1s;
+  min-height: 80vh;
 }
 
 @keyframes fade-in {

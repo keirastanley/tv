@@ -19,3 +19,7 @@ export function Stars({ rating }: { rating: number }) {
   }
   return <>{stars.map((star, ind) => <span key={uuidv4()}>{star}</span>)}</>
 }
+
+export function compareDates(d1: any, d2: any) {
+  return new Date(d1.toString().slice(0, 10)).getTime() === new Date(d2.toString().slice(0, 10)).getTime();
+}

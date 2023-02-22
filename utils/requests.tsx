@@ -1,7 +1,8 @@
-export async function getSchedule() {
-  const responseUS = await fetch(`https://api.tvmaze.com/schedule/`);
+export async function getSchedule(dateObject: Date) {
+  const date = new Date(dateObject).toISOString().slice(0, 10);
+  const responseUS = await fetch(`https://api.tvmaze.com/schedule/?&date=${date}`);
   const dataUS = await responseUS.json();
-  const responseUK = await fetch(`https://api.tvmaze.com/schedule/?&country=GB`);
+  const responseUK = await fetch(`https://api.tvmaze.com/schedule/?&date=${date}&country=GB`);
   const dataUK = await responseUK.json()
   return dataUS.concat(dataUK);
 };
@@ -17,25 +18,25 @@ export async function getStreaming() {
   return showData;
 };
 
-export async function getShow(id: number) {
+export async function getShow(id: string) {
   const response = await fetch(`https://api.tvmaze.com/shows/${id}`);
   const data = await response.json();
   console.log(data)
   return data;
 };
 
-export async function getShows(ids: number[]) {
+export async function getShows(ids: string[]) {
   const data = await Promise.all(ids.map(async item => await getShow(item)));
   return data;
 }
 
-export async function getCast(id: number) {
+export async function getCast(id: string) {
   const response = await fetch(`https://api.tvmaze.com/shows/${id}/cast`);
   const data = await response.json();
   return data;
 };
 
-export async function getSearchResults(query: number) {
+export async function getSearchResults(query: string) {
   const response = await fetch(`https://api.tvmaze.com/search/shows?q=${query}`);
   const data = await response.json();
   const responsePlural = await fetch(`https://api.tvmaze.com/search/shows?q=${query}s`);

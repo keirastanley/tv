@@ -2,33 +2,30 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-top: 100px;
+  padding-top: 150px;
   gap: 20px;
 }
 
 .schedule {
   display: flex;
   gap: 20px;
-  animation: schedule linear 50s 1s, fade-in 4s;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  visibility: hidden;
+  animation: schedule linear 50s 1s infinite alternate;
 }
 
 @keyframes schedule {
   0% {
+    opacity: 0;
     transform: translate3d(0, 0, 0);
     visibility: visible;
   }
 
+  10% {
+    opacity: 1;
+  }
+
   100% {
-    transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+    visibility: visible;
   }
 }

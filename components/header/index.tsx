@@ -12,7 +12,7 @@ export default function Header() {
     <div className={styles.container}>
       <div className={styles.icon}>
         <Link href='/'>
-          <img src="/retro-tv.png"></img>
+          {/* <img src="/neverblandtv_logo.png"></img> */}
           <h1>Neverbland.tv</h1>
         </Link>
       </div>
