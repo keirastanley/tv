@@ -26,7 +26,7 @@ export default function Favourites({ favourites, handleFavourites }: propsObj) {
           {shows.map(show => <ShowCard show={show} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}
         </div>
       </> : <div className={styles.text}>
-        <h2>You haven't added any favourites yet</h2>
+        <h2>You haven&#39;t added any favourites yet</h2>
         <div>
           <p>Click the <AiOutlineHeart /> on any show to add it to your favourites.</p>
           <p>You can find shows in your <Link href="/guide" style={{ textDecoration: "underline", cursor: "pointer" }}>guide</Link>, by searching for its name or from the <Link href="/" style={{ textDecoration: "underline", cursor: "pointer" }}>homepage</Link>.</p>

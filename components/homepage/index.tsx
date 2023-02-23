@@ -5,6 +5,7 @@ import { getSchedule } from "@/utils/requests";
 import ClipLoader from "react-spinners/ClipLoader";
 import HomepageRow from "../homepage-row";
 import { getHomepageIndexes } from "@/utils/functions";
+import { v4 as uuidv4 } from 'uuid';
 
 type propsObj = {
   favourites: number[];
@@ -42,7 +43,8 @@ export default function Homepage({ favourites, handleFavourites }: propsObj) {
             favourites={favourites}
             handleFavourites={handleFavourites}
             ind1={element.ind1}
-            ind2={element.ind2} />
+            ind2={element.ind2}
+            key={uuidv4()} />
         ) : null}
     </div>
 }

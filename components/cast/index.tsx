@@ -17,7 +17,7 @@ export default function Cast({ cast }: propsObj) {
       </div>
       <div className={styles.characters}>
         {cast.slice(0, 4).map(element =>
-          <div>{element.character.name}</div>)}
+          <div key={uuidv4()}>{element.character.name}</div>)}
       </div>
     </div>
   </div>

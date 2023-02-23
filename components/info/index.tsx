@@ -31,7 +31,7 @@ export default function Info({ show }: propsObj) {
           {show.genres.map((genre, ind) =>
             ind < show.genres.length - 1 ?
               <span key={uuidv4()}>{genre}, </span> :
-              <span>{genre}</span>)}
+              <span key={uuidv4()}>{genre}</span>)}
         </p> : null}
       </div>
     </div>
