@@ -20,6 +20,7 @@ export default function Homepage({ favourites, handleFavourites }: propsObj) {
     setLoading(true);
     getSchedule(new Date()).then((response) => {
       setSchedule([...response]);
+      console.log(response);
     }).then(() => setLoading(false))
   }, [])
 

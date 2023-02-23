@@ -9,21 +9,19 @@
 .cast {
   display: flex;
   gap: max(3vw, 25px);
-  font-size: 15px;
 }
 
 .actors {
   display: flex;
   flex-direction: column;
   color: lightgrey;
-  font-size: 15px;
 }
 
 .characters {
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
-  gap: 29px;
+  margin-top: 32px;
+  gap: 57px;
   min-width: 100px;
 }
 
@@ -34,6 +32,6 @@
 }
 
 .person img {
-  height: 50px;
+  height: 80px;
   clip-path: circle();
 }

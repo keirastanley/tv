@@ -10,27 +10,30 @@ type propsObj = {
 export default function Info({ show }: propsObj) {
 
   return <div className={styles.info_container}>
-    <h4>{show.webChannel ? `Streamed on ${show.webChannel.name}` : 'Not currently streaming'}</h4>
+    <h4>{show.webChannel ? `Stream on ${show.webChannel.name}` : show.network ? `Watch on ${show.network.name}` : 'Not currently streaming'}</h4>
     <div className={styles.info}>
       <div className={styles.info_headings}>
-        <p>Schedule</p>
-        <p>Status</p>
-        <p>Genres</p>
+        {show.schedule.days.length > 0 ? <p>Schedule</p> : null}
+        {show.status ? <p>Status</p> : null}
+        {show.genres.length > 0 ? <p>Genres</p> : null}
       </div>
       <div className={styles.info_content}>
-        <p className={styles.days}>
+        {show.schedule.days.length > 0 ? <p className={styles.days}>
           {show.schedule.days.length === 7 ?
             <span>Everyday</span> :
             show.schedule.days.map((day, ind) =>
               ind < show.schedule.days.length ?
                 <span key={uuidv4()}>{day}s, </span> :
-                <span key={uuidv4()}>and {day}s`</span>)}</p>
-        <p>{show.status}</p>
-        {show.genres.map((genre, ind) =>
-          ind < show.genres.length - 1 ?
-            <span key={uuidv4()}>{genre}, </span> :
-            <span>{genre}</span>)}
+                <span key={uuidv4()}>and {day}s`</span>)}
+        </p> : null}
+        {show.status ? <p>{show.status}</p> : null}
+        {show.genres.length > 0 ? <p>
+          {show.genres.map((genre, ind) =>
+            ind < show.genres.length - 1 ?
+              <span key={uuidv4()}>{genre}, </span> :
+              <span>{genre}</span>)}
+        </p> : null}
       </div>
     </div>
-  </div>
+  </div >
 }

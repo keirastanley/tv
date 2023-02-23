@@ -6,22 +6,25 @@
   width: 30vw;
   min-width: 280px;
   max-width: 400px;
-  font-size: 15px;
 }
 
 .info {
   display: flex;
+  align-items: center;
   gap: 70px;
 }
 
 .info_headings {
-  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   color: lightgrey;
 }
 
 .info_content {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .days {

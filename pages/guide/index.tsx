@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import { compareDates, createGuide, getIndex } from "@/utils/functions";
+import { compareDates, createGuide, getCurrentTimeString, getIndex } from "@/utils/functions";
 import ClockLoader from 'react-spinners/ClockLoader';
 
 type propsObj = {
@@ -20,7 +20,7 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
   const [date, setDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
   const today = new Date();
-  const time = new Date().toString().split(" ")[4].split(":").slice(0, 2).join(":");
+  const time = getCurrentTimeString(new Date());
 
   useEffect(() => {
     setLoading(true);
@@ -30,6 +30,7 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
   }, [date]);
 
   useEffect(() => {
+    console.log(guide)
     if (guide) {
       setIndex(getIndex(time, guide));
       setLoading(false);

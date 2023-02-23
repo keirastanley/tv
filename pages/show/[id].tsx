@@ -23,7 +23,7 @@ export default function ShowPage() {
 
   return <>{show ? <div className={styles.main_container}>
     <div className={styles.header}>
-      {show.image ? <img src={show.image.original} /> : <img src='/blank-movie.png' alt={show.name} />}
+      {show.image && show.image.original ? <img src={show.image.original} /> : <img src='/blank-movie.png' alt={show.name} />}
       <div className={styles.main_details}>
         {show.rating.average ? <div className={styles.rating}><Stars rating={show.rating.average / 2} /> <p>{show.rating.average / 2}</p></div> : null}
         <h1>{show.name}</h1>

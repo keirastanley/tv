@@ -11,7 +11,7 @@ export type scheduleType = {
   runtime: number,
   rating: { average: number | null },
   image: string | null,
-  summary: string | null,
+  summary: string,
   show: showType,
   _links: {
     self: { href: string },
@@ -27,7 +27,7 @@ export type showType = {
   language: string,
   genres: string[],
   status: string,
-  runtime: number,
+  runtime: number | null,
   averageRuntime: number,
   premiered: string,
   ended: string | null,
@@ -64,7 +64,7 @@ export type showType = {
     thetvdb: number | null,
     imdb: string | null
   },
-  image: { medium: string, original: string },
+  image: { medium: string | null, original: string | null },
   summary: string,
   updated: number,
   _links: {

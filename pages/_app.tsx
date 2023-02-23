@@ -7,8 +7,10 @@ export default function App({ Component, pageProps }: AppProps) {
   const [favourites, setFavourites] = useState<number[]>([])
 
   useEffect(() => {
-    const initialFavourites = JSON.parse(localStorage.getItem('favourites') as string);
-    setFavourites(initialFavourites);
+    if (localStorage.getItem('favourites')) {
+      const initialFavourites = JSON.parse(localStorage.getItem('favourites') as string);
+      setFavourites(initialFavourites);
+    }
   }, [])
 
   function handleFavourites(id: number) {

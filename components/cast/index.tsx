@@ -8,7 +8,6 @@ type propsObj = {
 
 export default function Cast({ cast }: propsObj) {
   return <div className={styles.cast_container}>
-    {/* <h2>Starring</h2> */}
     <div className={styles.cast}>
       <div className={styles.actors}>
         {cast.slice(0, 4).map(element =>
@@ -18,7 +17,7 @@ export default function Cast({ cast }: propsObj) {
       </div>
       <div className={styles.characters}>
         {cast.slice(0, 4).map(element =>
-          <div key={uuidv4()}>{element.character.name}</div>)}
+          <div>{element.character.name}</div>)}
       </div>
     </div>
   </div>
