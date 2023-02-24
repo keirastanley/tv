@@ -103,3 +103,5 @@ describe('Searching', () => {
     cy.url().should('include', '/cat');
   });
 });
+
+export { }
