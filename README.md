@@ -1,6 +1,7 @@
 # 📺 Neverbland.tv
 
 A app that allows users to view an up-to-date TV guide, search for shows and save their favourites.
+[✨ Try it out ✨](https://neverblandtv.vercel.app)
 
 ### 🪄 Tech stack
 - Next.js
