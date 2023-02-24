@@ -9,7 +9,7 @@ A app that allows users to view an up-to-date TV guide, search for shows and sav
 - Cypress
 
 ### Tests
-The functions in /utils/functions.tsx are all tested using Jest. 
+The functions in /utils/functions.tsx have all been tested using Jest. 
 
 Run the unit tests
 
