@@ -12,6 +12,7 @@ type propsObj = {
   handleFavourites: Function;
 }
 
+/** Maps over the array of indexes created with getHomepageIndexes and renders the 4 rows of panning cards on the homepage or a loading spinner if the data from the API has not yet arrived. */
 export default function Homepage({ favourites, handleFavourites }: propsObj) {
   const [schedule, setSchedule] = useState<scheduleType[]>();
   const [loading, setLoading] = useState(true);

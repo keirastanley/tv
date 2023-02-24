@@ -9,6 +9,7 @@ type propsObj = {
   showPage?: boolean
 }
 
+/** Renders a heart symbol that can be clicked to add an item to your favourites or clicked again to remove it */
 export default function Heart({ favourites, handleFavourites, show, showPage }: propsObj) {
   return <div onClick={() => handleFavourites(show.id)} data-cy="heart">
     {showPage ?

@@ -11,6 +11,7 @@ type propsObj = {
   ind2: number
 }
 
+/** Renders each row of cards on the homepage. Each row is a slice of the schedule array, using indexes calculated by dividing the number of shows returned by the fetch request by 4 and passed in from Homepage. */
 export default function HomepageRow({ favourites, handleFavourites, schedule, ind1, ind2 }: propsObj) {
 
   return <div className={styles.schedule}>

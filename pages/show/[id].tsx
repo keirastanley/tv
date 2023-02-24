@@ -14,6 +14,7 @@ type propsObj = {
   handleFavourites: Function
 }
 
+/** Renders a page that displays further details about each show: its image, a summary and the Info and Cast components */
 export default function ShowPage({ favourites, handleFavourites }: propsObj) {
   const router = useRouter();
   const id = router.query.id;

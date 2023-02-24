@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from '@/styles/search.module.css';
 
+/** The input that is revealed in the header when the search icon is clicked and hidden again when the user clicks anywhere else on the page. */
 export default function Search({ setSearching }: any) {
   const [query, setQuery] = useState("");
   const router = useRouter();

@@ -11,6 +11,7 @@ type propsObj = {
   handleFavourites: Function,
 }
 
+/** Each card displaying the picture of the TV show. On hover, users can also see each show's main information and a heart that can be used to favourite it. */
 export default function ShowCard({ show, airtime, favourites, handleFavourites }: propsObj) {
 
   return <div className={styles.container}>

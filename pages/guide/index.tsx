@@ -13,6 +13,7 @@ type propsObj = {
   handleFavourites: Function,
 }
 
+/** Renders a guide displaying the shows that will air on a given date, ordered by airtime */
 export default function Guide({ favourites, handleFavourites }: propsObj) {
   const [guide, setGuide] = useState<guideType[]>();
   const [index, setIndex] = useState<number>(0);
@@ -52,20 +53,40 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
       data-testid="loader"
     /> : <div className={styles.table}>
       <div className={styles.date}>
-        {compareDates(date, today) ? null : <div onClick={() => handleDate("left")} data-cy="left_arrow"><MdKeyboardArrowLeft /></div>}
+        {compareDates(date, today) ? null :
+          <div onClick={() => handleDate("left")} data-cy="left_arrow">
+            <MdKeyboardArrowLeft />
+          </div>}
         <p data-cy="date">{date.toString().slice(0, 10)}</p>
-        <div onClick={() => handleDate("right")} data-cy="right_arrow"><MdKeyboardArrowRight /></div>
+        <div onClick={() => handleDate("right")} data-cy="right_arrow">
+          <MdKeyboardArrowRight />
+        </div>
       </div>
       {compareDates(date, today) ? guide?.slice(index).map(item =>
         <div className={styles.table_head} key={uuidv4()}>
           <div className={styles.time}>{item.time}</div>
           <div className={styles.shows}>{item.shows.map(item =>
-            <ShowCard show={item.show} airtime={item.airtime} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}</div>
-        </div>) : guide?.map(item =>
+            <ShowCard
+              show={item.show}
+              airtime={item.airtime}
+              favourites={favourites}
+              handleFavourites={handleFavourites}
+              key={uuidv4()}
+            />)}
+          </div>
+        </div>) :
+        guide?.map(item =>
           <div className={styles.table_head} key={uuidv4()}>
             <div className={styles.time}>{item.time}</div>
             <div className={styles.shows}>{item.shows.map(item =>
-              <ShowCard show={item.show} airtime={item.airtime} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}</div>
+              <ShowCard
+                show={item.show}
+                airtime={item.airtime}
+                favourites={favourites}
+                handleFavourites={handleFavourites}
+                key={uuidv4()}
+              />)}
+            </div>
           </div>)}
     </div>}
   </div>

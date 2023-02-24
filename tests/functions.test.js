@@ -1,3 +1,5 @@
+// Unit tests for all functions in utils/functions.tsx
+
 const functions = require('../utils/functions');
 const mockData = require('../utils/mockData');
 

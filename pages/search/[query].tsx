@@ -12,6 +12,7 @@ type propsObj = {
   handleFavourites: Function,
 }
 
+/** Renders the results of entering a search term in the input field in the header */
 export default function SearchResults({ favourites, handleFavourites }: propsObj) {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState<showType[]>();
@@ -26,7 +27,14 @@ export default function SearchResults({ favourites, handleFavourites }: propsObj
   }, [query]);
 
   return <div className={styles.results_container}>
-    {loading ? <ClipLoader color="white" /> : results?.map(show =>
-      <ShowCard show={show} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}
+    {loading ?
+      <ClipLoader color="white" /> :
+      results?.map(show =>
+        <ShowCard
+          show={show}
+          favourites={favourites}
+          handleFavourites={handleFavourites}
+          key={uuidv4()}
+        />)}
   </div>
 }
