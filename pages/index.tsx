@@ -1,7 +1,5 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
-import Homepage from '@/components/homepage'
+import Head from 'next/head';
+import Homepage from '@/components/homepage';
 
 type propsObj = {
   favourites: number[],
@@ -21,3 +19,4 @@ export default function Home({ favourites, handleFavourites }: propsObj) {
     </>
   )
 }
+

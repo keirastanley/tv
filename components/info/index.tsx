@@ -3,7 +3,7 @@ import { showType } from '@/utils/types';
 import { v4 as uuidv4 } from 'uuid';
 
 type propsObj = {
-  show: showType;
+  show: showType,
 }
 
 export default function Info({ show }: propsObj) {
