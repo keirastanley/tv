@@ -1,6 +1,7 @@
 import { RiStarLine, RiStarHalfFill, RiStarFill } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 
+/** Renders the correct number of fill, half and outline stars according to the show's numerical rating. */
 export function Stars({ rating }: { rating: number }) {
   rating = Math.round(rating * 2) / 2;
   let stars = [];

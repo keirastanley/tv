@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Search from '../search';
 
+/**Contains the links to each page on the site and the search bar*/
 export default function Header() {
   const [searching, setSearching] = useState(false);
 

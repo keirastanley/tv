@@ -1,3 +1,5 @@
+// End to end tests using Cypress to check the site's main functionality works as expected 
+
 describe('Header links', () => {
   it('Clicking the guide button takes you to the guide page', () => {
     cy.visit('/');

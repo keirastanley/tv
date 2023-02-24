@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 type propsObj = {
   cast: castType[],
 }
-
+/**Displays the information about the cast with the actors' / presenters' images and the characters they play*/
 export default function Cast({ cast }: propsObj) {
   return <div className={styles.cast_container}>
     {cast.slice(0, 4).map(element =>

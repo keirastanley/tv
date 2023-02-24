@@ -1,3 +1,5 @@
+// All custom types used throughout the project
+
 export type scheduleType = {
   id: number,
   url: string,

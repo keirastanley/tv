@@ -12,6 +12,7 @@ type propsObj = {
   handleFavourites: Function,
 }
 
+/** If the user has favourited any shows they see their cards displayed here. If not, they can see a message informing them. */
 export default function Favourites({ favourites, handleFavourites }: propsObj) {
   const [shows, setShows] = useState<showType[]>();
 
@@ -23,7 +24,13 @@ export default function Favourites({ favourites, handleFavourites }: propsObj) {
     {shows && shows.length > 0 ?
       <>
         <div className={styles.card_container}>
-          {shows.map(show => <ShowCard show={show} favourites={favourites} handleFavourites={handleFavourites} key={uuidv4()} />)}
+          {shows.map(show =>
+            <ShowCard
+              show={show}
+              favourites={favourites}
+              handleFavourites={handleFavourites}
+              key={uuidv4()}
+            />)}
         </div>
       </> : <div className={styles.text}>
         <h2>You haven&#39;t added any favourites yet</h2>

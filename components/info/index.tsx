@@ -6,6 +6,7 @@ type propsObj = {
   show: showType,
 }
 
+/** Displays the information about where the show can be watched, whether or not its still running and its schedule and genres. */
 export default function Info({ show }: propsObj) {
 
   return <div className={styles.info_container}>
