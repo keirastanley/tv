@@ -1,9 +1,9 @@
-import styles from '@/styles/cast.module.css'
-import { castType } from '@/utils/types'
+import styles from '@/styles/cast.module.css';
+import { castType } from '@/utils/types';
 import { v4 as uuidv4 } from 'uuid';
 
 type propsObj = {
-  cast: castType[];
+  cast: castType[],
 }
 
 export default function Cast({ cast }: propsObj) {

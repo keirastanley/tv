@@ -1,6 +1,6 @@
-import { scheduleType } from "@/utils/types"
-import styles from '@/styles/schedule.module.css'
-import { useEffect, useState } from "react"
+import { scheduleType } from "@/utils/types";
+import styles from '@/styles/schedule.module.css';
+import { useEffect, useState } from "react";
 import { getSchedule } from "@/utils/requests";
 import ClipLoader from "react-spinners/ClipLoader";
 import HomepageRow from "../homepage-row";

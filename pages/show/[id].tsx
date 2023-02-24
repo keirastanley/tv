@@ -1,6 +1,6 @@
 import { Stars } from "@/components/stars";
 import { castType, showType } from "@/utils/types";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import parse from 'html-react-parser';
 import styles from '@/styles/show_page.module.css';
@@ -15,15 +15,15 @@ type propsObj = {
 }
 
 export default function ShowPage({ favourites, handleFavourites }: propsObj) {
-  const router = useRouter()
+  const router = useRouter();
   const id = router.query.id;
-  const [show, setShow] = useState<showType>()
-  const [cast, setCast] = useState<castType[]>()
+  const [show, setShow] = useState<showType>();
+  const [cast, setCast] = useState<castType[]>();
 
   useEffect(() => {
     if (id) {
-      getShow(id as string).then((response) => setShow(response))
-      getCast(id as string).then((response) => setCast(response))
+      getShow(id as string).then((response) => setShow(response));
+      getCast(id as string).then((response) => setCast(response));
     }
   }, [id])
 

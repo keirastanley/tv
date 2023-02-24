@@ -1,5 +1,5 @@
 import ShowCard from "@/components/show-card";
-import { getShow, getShows } from "@/utils/requests";
+import { getShows } from "@/utils/requests";
 import { showType } from "@/utils/types";
 import { useEffect, useState } from "react";
 import styles from '@/styles/favourites.module.css';
@@ -13,7 +13,7 @@ type propsObj = {
 }
 
 export default function Favourites({ favourites, handleFavourites }: propsObj) {
-  const [shows, setShows] = useState<showType[]>()
+  const [shows, setShows] = useState<showType[]>();
 
   useEffect(() => {
     getShows(favourites).then((response) => setShows(response))

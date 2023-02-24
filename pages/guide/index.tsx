@@ -1,10 +1,9 @@
-import { guideType, scheduleType, showType } from "@/utils/types";
+import { guideType } from "@/utils/types";
 import ShowCard from "@/components/show-card";
 import styles from '@/styles/guide.module.css';
 import { getSchedule } from "@/utils/requests";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { compareDates, createGuide, getCurrentTimeString, getIndex } from "@/utils/functions";
 import ClockLoader from 'react-spinners/ClockLoader';
