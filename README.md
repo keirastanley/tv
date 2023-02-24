@@ -2,16 +2,16 @@
 
 A app that allows users to view an up-to-date TV guide, search for shows and save their favourites.
 
-### 🪄Tech stack
+### 🪄 Tech stack
 - Next.js
 - TypeScript
 - Jest 
 - Cypress
 
-### Tests
+### 🧪 Tests
 The functions in /utils/functions.tsx have all been tested using Jest. 
 
-Run the unit tests
+<i>Run the unit tests:</i>
 
 ```bash
 npm test
@@ -19,7 +19,7 @@ npm test
 
 End-to-end testing has been implemented using Cypress to check that the main functionality performs as expected.
 
-Run the end-to-end tests
+<i>Run the end-to-end tests:</i>
 
 ```bash
 npx cypress run
