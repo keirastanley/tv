@@ -12,6 +12,7 @@ type propsObj = {
 }
 
 export default function HomepageRow({ favourites, handleFavourites, schedule, ind1, ind2 }: propsObj) {
+
   return <div className={styles.schedule}>
     {schedule?.slice(ind1, ind2).map(item =>
       item.show.image ?

@@ -8,17 +8,15 @@ type propsObj = {
 
 export default function Cast({ cast }: propsObj) {
   return <div className={styles.cast_container}>
-    <div className={styles.cast}>
-      <div className={styles.actors}>
-        {cast.slice(0, 4).map(element =>
-          <div className={styles.person} key={uuidv4()}>
+    {cast.slice(0, 4).map(element =>
+      <div className={styles.cast} key={uuidv4()}>
+        <div className={styles.actors}>
+          <div className={styles.person} >
             {element.person.image ? <img src={element.person.image.medium} /> : null}
-            <span>{element.person.name}</span></div>)}
-      </div>
-      <div className={styles.characters}>
-        {cast.slice(0, 4).map(element =>
-          <div key={uuidv4()}>{element.character.name}</div>)}
-      </div>
-    </div>
+            <span>{element.person.name}</span>
+          </div>
+        </div>
+        <div className={styles.characters}>{element.character.name}</div>
+      </div>)}
   </div>
 }

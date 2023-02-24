@@ -9,6 +9,7 @@ export default function Search({ setSearching }: any) {
   return <div className={styles.container}>
     <div className={styles.input_container}>
       <input
+        data-cy="search_input"
         className={styles.input}
         onBlur={() => setSearching(false)}
         onChange={(event) => setQuery(event.target.value)}

@@ -3,15 +3,22 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  width: 30vw;
-  min-width: 280px;
-  max-width: 400px;
+  border-radius: 5px;
+  border: 0.05px groove rgb(93, 93, 93);
+  max-width: 90vw;
+  padding: 20px;
 }
 
 .info {
   display: flex;
-  align-items: center;
-  gap: 70px;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.info_item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .info_headings {
@@ -19,6 +26,7 @@
   flex-direction: column;
   gap: 20px;
   color: lightgrey;
+  width: 120px;
 }
 
 .info_content {
@@ -29,5 +37,7 @@
 
 .days {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  align-items: center;
 }

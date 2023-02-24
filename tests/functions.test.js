@@ -1,8 +1,6 @@
 const functions = require('../utils/functions');
 const mockData = require('../utils/mockData');
 
-console.log(functions);
-
 describe("compareDates correctly determines equality between 2 date objects", () => {
   it("Two new date objects return true", () => {
     expect(functions.compareDates(new Date(), new Date())).toEqual(true);
@@ -14,7 +12,7 @@ describe("compareDates correctly determines equality between 2 date objects", ()
 });
 
 describe("getTimes", () => {
-  it("Creates an array of times in HH:MM format, one for every hour", () => {
+  it("Returns an array of times in HH:MM format, one for every hour", () => {
     expect(functions.getTimes()).toEqual(mockData.exampleTimes);
   });
 });
@@ -26,6 +24,9 @@ describe("createGuideObj", () => {
 });
 
 describe("createGuide and sortGuideByTime", () => {
+  it("sortGuideByTime takes in a guide array and returns it sorted by airtime", () => {
+    expect(functions.sortGuideByTime(mockData.exampleGuide)).toEqual(mockData.exampleSortedGuide);
+  });
   it("createGuide returns a guide array with the shows array sorted by airtime", () => {
     expect(functions.createGuide(mockData.exampleSchedule)).toEqual(mockData.exampleSortedGuide);
   });
@@ -50,5 +51,24 @@ describe("getIndex", () => {
   it("Returns the nearest index if exact time doesn't exist in the array", () => {
     const time12pm = functions.getCurrentTimeString(new Date("2023-01-14T12:00:00"));
     expect(functions.getIndex(time12pm, mockData.exampleSortedGuide)).toEqual(5);
-  })
-})
+  });
+});
+
+describe("getHomepageIndexes", () => {
+  it("Returns the indexes of an array split into quarters", () => {
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    const indexes = [{ ind1: 0, ind2: 2 }, { ind1: 2, ind2: 4 }, { ind1: 4, ind2: 6 }, { ind1: 6, ind2: 8 }];
+    expect(functions.getHomepageIndexes(arr.length)).toEqual(indexes);
+  });
+  it("Can handle odd numbered array lengths", () => {
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const indexes = [{ ind1: 0, ind2: 2 }, { ind1: 2, ind2: 4 }, { ind1: 4, ind2: 6 }, { ind1: 6, ind2: 9 }];
+    expect(functions.getHomepageIndexes(arr.length)).toEqual(indexes);
+  });
+});
+
+describe("removeDuplicateShows", () => {
+  it("Returns an array with duplicated shows removed", () => {
+    expect(functions.removeDuplicateShows(mockData.exampleDuplicateSchedule)).toEqual(mockData.exampleDuplicatesRemoved);
+  });
+});

@@ -30,7 +30,6 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
   }, [date]);
 
   useEffect(() => {
-    console.log(guide)
     if (guide) {
       setIndex(getIndex(time, guide));
       setLoading(false);
@@ -54,12 +53,9 @@ export default function Guide({ favourites, handleFavourites }: propsObj) {
       data-testid="loader"
     /> : <div className={styles.table}>
       <div className={styles.date}>
-        {compareDates(date, today) ? null : <MdKeyboardArrowLeft onClick={() => handleDate("left")} />}
-        <p>{date.toString().slice(0, 10)}</p>
-        <MdKeyboardArrowRight onClick={() => handleDate("right")} />
-        {/* {compareDates(date, today) ? null : <BiLeftArrow onClick={() => handleDate("left")} />}
-        <p>{date.toString().slice(0, 10)}</p>
-        <BiRightArrow onClick={() => handleDate("right")} /> */}
+        {compareDates(date, today) ? null : <div onClick={() => handleDate("left")} data-cy="left_arrow"><MdKeyboardArrowLeft /></div>}
+        <p data-cy="date">{date.toString().slice(0, 10)}</p>
+        <div onClick={() => handleDate("right")} data-cy="right_arrow"><MdKeyboardArrowRight /></div>
       </div>
       {compareDates(date, today) ? guide?.slice(index).map(item =>
         <div className={styles.table_head} key={uuidv4()}>

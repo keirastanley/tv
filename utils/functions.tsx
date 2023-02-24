@@ -23,7 +23,7 @@ export function createGuideObj(schedule: scheduleType[], times: string[]) {
   for (let i = 0; i < schedule.length; i++) {
     for (let j = 0; j < times.length; j++) {
       let timeNumber = Number(times[j].split(":")[0]);
-      let airtimeNumber = Number(schedule[i].airtime?.split(":")[0]);
+      let airtimeNumber = Number(schedule[i].airtime.split(":")[0]);
       if (timeNumber === airtimeNumber) {
         if (guideObj[times[j]]) {
           guideObj[times[j]] = [...guideObj[times[j]], schedule[i]];
@@ -39,9 +39,7 @@ export function createGuideObj(schedule: scheduleType[], times: string[]) {
 
 export function sortGuideByTime(guide: guideType[]) {
   guide.sort((a, b) => Number(a.time.slice(0, 2)) - Number(b.time.slice(0, 2)));
-  for (let i = 0; i < guide.length; i++) {
-    guide[i].shows.sort((a, b) => Number(a.airtime?.slice(3)) - Number(b.airtime?.slice(3)))
-  }
+  guide.map(item => item.shows.sort((a, b) => Number(a.airtime.slice(3)) - Number(b.airtime.slice(3))));
   return guide;
 }
 
@@ -69,10 +67,10 @@ export function getIndex(time: string, guide: guideType[]) {
 }
 
 export function getHomepageIndexes(arrLength: number) {
-  const scheduleLengthQuarter = arrLength / 4;
+  const lengthQuarter = arrLength / 4;
   const indexArr = [];
   for (let i = 0; i < 4; i++) {
-    indexArr.push({ ind1: Math.floor(arrLength - (scheduleLengthQuarter * (4 - i))), ind2: Math.floor(arrLength - (scheduleLengthQuarter * (4 - (i + 1)))) })
+    indexArr.push({ ind1: Math.floor(arrLength - (lengthQuarter * (4 - i))), ind2: Math.floor(arrLength - (lengthQuarter * (4 - (i + 1)))) })
   }
   return indexArr;
 }

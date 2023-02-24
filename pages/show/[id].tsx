@@ -7,8 +7,14 @@ import styles from '@/styles/show_page.module.css';
 import { getCast, getShow } from "@/utils/requests";
 import Cast from "@/components/cast";
 import Info from "@/components/info";
+import Heart from "@/components/heart";
 
-export default function ShowPage() {
+type propsObj = {
+  favourites: number[],
+  handleFavourites: Function
+}
+
+export default function ShowPage({ favourites, handleFavourites }: propsObj) {
   const router = useRouter()
   const id = router.query.id;
   const [show, setShow] = useState<showType>()
@@ -21,9 +27,12 @@ export default function ShowPage() {
     }
   }, [id])
 
-  return <>{show ? <div className={styles.main_container}>
+  return <>{show ? <div className={styles.main_container} data-cy={show.id}>
     <div className={styles.header}>
-      {show.image && show.image.original ? <img src={show.image.original} /> : <img src='/blank-movie.png' alt={show.name} />}
+      <div className={styles.image}>
+        {show.image && show.image.original ? <img src={show.image.original} /> : <img src='/blank-movie.png' alt={show.name} />}
+        <Heart favourites={favourites} handleFavourites={handleFavourites} show={show} showPage={true} />
+      </div>
       <div className={styles.main_details}>
         {show.rating.average ? <div className={styles.rating}><Stars rating={show.rating.average / 2} /> <p>{show.rating.average / 2}</p></div> : null}
         <h1>{show.name}</h1>

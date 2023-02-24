@@ -56,3 +56,35 @@ export const exampleSortedGuide = [
   { time: '13:00', shows: [{ airtime: "13:15", id: 11 }] },
   { time: '14:00', shows: [{ airtime: "14:00", id: 12 }, { airtime: "14:30", id: 14 }, { airtime: "14:45", id: 13 }] }
 ]
+
+export const exampleDuplicateSchedule = [
+  { show: { id: 1 } },
+  { show: { id: 2 } },
+  { show: { id: 4 } },
+  { show: { id: 4 } },
+  { show: { id: 5 } },
+  { show: { id: 6 } },
+  { show: { id: 6 } },
+  { show: { id: 8 } },
+  { show: { id: 9 } },
+  { show: { id: 10 } },
+  { show: { id: 12 } },
+  { show: { id: 12 } },
+  { show: { id: 13 } },
+  { show: { id: 13 } },
+  { show: { id: 14 } },
+];
+
+export const exampleDuplicatesRemoved = [
+  { id: 1 },
+  { id: 2 },
+  { id: 4 },
+  { id: 5 },
+  { id: 6 },
+  { id: 8 },
+  { id: 9 },
+  { id: 10 },
+  { id: 12 },
+  { id: 13 },
+  { id: 14 },
+];

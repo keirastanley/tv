@@ -23,7 +23,6 @@ export async function getStreaming() {
 export async function getShow(id: string | number) {
   const response = await fetch(`https://api.tvmaze.com/shows/${id}`);
   const data = await response.json();
-  console.log(data)
   return data;
 };
 
@@ -33,9 +32,15 @@ export async function getShows(ids: string[] | number[]) {
 }
 
 export async function getCast(id: string) {
-  const response = await fetch(`https://api.tvmaze.com/shows/${id}/cast`);
-  const data = await response.json();
-  return data;
+  // const response = await fetch(`https://api.tvmaze.com/shows/${id}/cast`);
+  try {
+    const response = await fetch(`https://api.tvmaze.com/shows/${id}/cast`);
+    const data = await response.json();
+    return data;
+  }
+  catch {
+    return "No cast";
+  }
 };
 
 export async function getSearchResults(query: string) {

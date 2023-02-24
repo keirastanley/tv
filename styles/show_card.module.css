@@ -28,6 +28,7 @@
 
 .heart_outline {
   opacity: 0;
+  font-size: 20px;
 }
 
 .container:hover .heart_outline {
@@ -36,6 +37,7 @@
 
 .heart_fill {
   color: #e33b5f;
+  font-size: 20px;
 }
 
 .image_container {

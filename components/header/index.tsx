@@ -16,13 +16,13 @@ export default function Header() {
           </Link>
         </div>
         <div className={styles.main_links}>
-          <Link href='/'>Home</Link>
-          <Link href='/guide'>Guide</Link>
-          <Link href='/favourites'>Favourites</Link>
+          <Link href='/' data-cy="home">Home</Link>
+          <Link href='/guide' data-cy="guide">Guide</Link>
+          <Link href='/favourites' data-cy="favourites">Favourites</Link>
         </div>
       </div>
       <div className={styles.search_section}>
-        <AiOutlineSearch onClick={() => setSearching(true)} />{searching ? <Search setSearching={setSearching} /> : null}
+        <div onClick={() => setSearching(true)} data-cy="search_icon"><AiOutlineSearch /></div>{searching ? <Search setSearching={setSearching} /> : null}
       </div>
     </div>
   </header>

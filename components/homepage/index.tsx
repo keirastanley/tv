@@ -18,18 +18,22 @@ export default function Homepage({ favourites, handleFavourites }: propsObj) {
   const [indexes, setIndexes] = useState<any[]>();
 
   useEffect(() => {
-    setLoading(true);
     getSchedule(new Date()).then((response) => {
       setSchedule([...response]);
-      console.log(response);
-    }).then(() => setLoading(false))
-  }, [])
+    });
+  }, []);
 
   useEffect(() => {
     if (schedule) {
       setIndexes(getHomepageIndexes(schedule.length));
     }
-  }, [schedule])
+  }, [schedule]);
+
+  useEffect(() => {
+    if (indexes) {
+      setLoading(false);
+    }
+  }, [indexes]);
 
   return loading ?
     <div className={styles.loader}>
